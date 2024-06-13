@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using SistemadeClubDeportivo.Contexto;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MyContexto>(options => {
 
+    options.UseSqlite(builder.Configuration.GetConnectionString("CadenaConexion"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +28,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();
+// Add connection string 
