@@ -11,7 +11,7 @@ using SistemadeClubDeportivo.Contexto;
 namespace SistemadeClubDeportivo.Migrations
 {
     [DbContext(typeof(MyContexto))]
-    [Migration("20240613193416_PrimeraMigracion")]
+    [Migration("20240613210648_PrimeraMigracion")]
     partial class PrimeraMigracion
     {
         /// <inheritdoc />

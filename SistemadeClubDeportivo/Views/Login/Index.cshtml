@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color: #000; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background-color: rgba(255, 165, 0, 0.1); /* Light orange background with opacity */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            margin-bottom: 10px;
+            background-color: rgba(255, 165, 0, 0.2); /* Orange background with opacity */
+            border: none;
+            color: #fff; /* White text */
+        }
+        .login-container .btn {
+            width: 100%;
+            background-color: #ff8c00; /* Dark orange button */
+            border: none;
+        }
+        .login-container .btn:hover {
+            background-color: #ffa500; /* Lighter orange on hover */
+        }
+        .login-container label {
+            color: #fff; /* White labels */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://via.placeholder.com/100" alt="Logo">
+        <form asp-action="Login" asp-controller="Login" method="post">
+            <div class="form-group">
+                <label for="email">Correo Electronico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="passsword" placeholder="Password">
+            </div>
+            @if (TempData["LoginError"] != null)
+            {
+                <div class="alert alert-danger">@TempData["LoginError"]</div>
+            }
+            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>*@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
