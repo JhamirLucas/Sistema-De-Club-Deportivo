@@ -15,7 +15,7 @@ namespace SistemadeClubDeportivo.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.20");
 
             modelBuilder.Entity("SistemadeClubDeportivo.Models.Cliente", b =>
                 {
@@ -113,7 +113,7 @@ namespace SistemadeClubDeportivo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Personal");
+                    b.ToTable("Personales");
                 });
 
             modelBuilder.Entity("SistemadeClubDeportivo.Models.Usuario", b =>

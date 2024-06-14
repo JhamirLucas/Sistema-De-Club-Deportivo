@@ -12,7 +12,7 @@ namespace SistemadeClubDeportivo.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Personal",
+                name: "Personales",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -24,7 +24,7 @@ namespace SistemadeClubDeportivo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Personal", x => x.Id);
+                    table.PrimaryKey("PK_Personales", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -62,9 +62,9 @@ namespace SistemadeClubDeportivo.Migrations
                 {
                     table.PrimaryKey("PK_Clientes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clientes_Personal_PersonalId",
+                        name: "FK_Clientes_Personales_PersonalId",
                         column: x => x.PersonalId,
-                        principalTable: "Personal",
+                        principalTable: "Personales",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -130,7 +130,7 @@ namespace SistemadeClubDeportivo.Migrations
                 name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Personal");
+                name: "Personales");
         }
     }
 }
