@@ -14,66 +14,100 @@
         body, html {
             height: 100%;
             margin: 0;
-            background-color: #000; /* Black background */
+            font-family: Arial, sans-serif;
+            background: url('https://irp.cdn-website.com/09dcdaca/dms3rep/multi/0680b975-d638-4e55-aa12-16e47f4c9551.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            color: #fff; /* Color de texto principal */
         }
-        .login-container {
-            background-color: rgba(255, 165, 0, 0.1); /* Light orange background with opacity */
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            max-width: 400px;
+            max-width: 1000px;
             width: 100%;
-            text-align: center;
         }
-        .login-container img {
-            width: 100px;
-            margin-bottom: 20px;
+
+        .login-container {
+            background-color: rgba(255, 165, 0, 0.3); /* Fondo semi-transparente de formulario */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         }
-        .login-container input {
-            margin-bottom: 10px;
-            background-color: rgba(255, 165, 0, 0.2); /* Orange background with opacity */
-            border: none;
-            color: #fff; /* White text */
+
+            .login-container input {
+                margin-bottom: 15px;
+                background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente de inputs */
+                border: none;
+                color: #fff; /* Color de texto de inputs */
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .login-container .btn {
+                width: 100%;
+                background-color: #ff8c00;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+                .login-container .btn:hover {
+                    background-color: #ffa500; /* Color más claro al pasar el mouse */
+                }
+
+        .info-container {
+            padding: 30px;
         }
-        .login-container .btn {
-            width: 100%;
-            background-color: #ff8c00; /* Dark orange button */
-            border: none;
-        }
-        .login-container .btn:hover {
-            background-color: #ffa500; /* Lighter orange on hover */
-        }
-        .login-container label {
-            color: #fff; /* White labels */
-        }
+
+            .info-container h2 {
+                text-align: center;
+                font-weight: bold;
+                font-size: 24px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .info-container p {
+                margin-bottom: 10px;
+            }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <img src="https://via.placeholder.com/100" alt="Logo">
-        <form asp-action="Login" asp-controller="Login" method="post">
-            <div class="form-group">
-                <label for="email">Correo Electronico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    <div class="container">
+        <div class="Titulo">
+            <h2>Inicio de Sesión</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6 login-container">
+                <form asp-action="Login" asp-controller="Login" method="post">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    @if (TempData["LoginError"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["LoginError"]</div>
+                    }
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <div class="col-md-6 info-container">
+                <h2>CLUB MULTIDISCIPLINARIO DEPORTIVO "LEONES"</h2>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLjGGhv4CQS6dBZMK-o09zTp_dja8evaTJmP-44lmirFqmW0g_TuA6W6J1W2DkNz7LVfhaSV4iJnVxcjY8z3qaAjpc-udF971uh10oUQUzC8SgkVud4cz434hHp4eMJ5p6PPvg4QhrR-6U4bSNKd7PeITaCmfo37_DjcA3RvESbzMf97r5Ph2s6KCnOEsU/w284-h282/Club.png" alt="Leones Logo">
             </div>
-            @if (TempData["LoginError"] != null)
-            {
-                <div class="alert alert-danger">@TempData["LoginError"]</div>
-            }
-            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
-        </form>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    @*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>*@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@ namespace SistemadeClubDeportivo.Contexto
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Pago> Pagos { get; set; }
-        public DbSet<Personal> Personales { get; set; }
+        public DbSet<Personal> Personal { get; set; }
+        public DbSet<Horario> Horarios { get; set; }
     }
-} 
+}

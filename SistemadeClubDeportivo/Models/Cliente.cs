@@ -1,24 +1,42 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Security.Policy;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemadeClubDeportivo.Models
 {
     public class Cliente
     {
         [Key]
-        public int Id { get; set; }
-        public string? Nombre { get; set; }
-        public string? NomTutor { get; set; }
-        public int NumCelular { get; set; }
-        public int NumCelTutor { get; set; }
-        public decimal MontoRegistro { get; set; }
-        public DateTime FechaNaci { get; set; }
-        public DateTime FechaReg { get; set; }
+        public int ID { get; set; }
 
+        [Required]
+        public string? Nombre { get; set; }
+
+        [Required]
+        public int CI { get; set; }
+
+        [Required]
+        public DateOnly FechaNacimiento { get; set; }
+
+        [Required]
+        public int NroCelular { get; set; }
+
+        public decimal MontoDeRegistro { get; set; }
+
+        [Required]
+        public DateTime FechaDeRegistro { get; set; }
+
+        // 1 ---- * : Un cliente realiza muchos pagos
+        [NotMapped]
+        public string? Info { get { return $"{Nombre} - {CI}"; } }
         public virtual List<Pago>? Pagos { get; set; }
 
-        public int PersonalId { get; set; }
 
+        // * ---- 1 : Muchos clientes Tienen un Personal
+        public int IDPersonal { get; set; }
         public virtual Personal? Personal { get; set; }
+
+
+        // 1 --- * : Un cliente Puede tener Varios Horarios
+        public virtual List<Horario>? Horarios { get; set; }
     }
 }

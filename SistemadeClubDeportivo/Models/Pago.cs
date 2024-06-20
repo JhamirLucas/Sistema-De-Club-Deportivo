@@ -1,22 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemadeClubDeportivo.Models
 {
     public class Pago
     {
         [Key]
-        public int Id { get; set; }
-        public int Anio { get; set; }
-        public int Fecha { get; set; }
-        public int Mes { get; set; }
+        public int ID { get; set; }
+
+        [Column(TypeName = "date")]
         public int NroRecibo { get; set; }
-        public int TotalPago { get; set; }
 
-        public int MyProperty { get; set; }
+        [Required]
+        public int Dia { get; set; }
 
-        public int UsuarioId { get; set; }
+        [Required]
+        public int Mes { get; set; }
+
+        [Required]
+        public int Anio { get; set; }
+
+        [Required]
+        public decimal Total { get; set; }
+
+        // * ----- 1 : Muchos a uno
+        public int UsuarioID { get; set; }
+        public int ClienteID { get; set; }
+
         public virtual Usuario? Usuario { get; set; }
-        public int ClienteId { get; set; }
         public virtual Cliente? Cliente { get; set; }
     }
 }

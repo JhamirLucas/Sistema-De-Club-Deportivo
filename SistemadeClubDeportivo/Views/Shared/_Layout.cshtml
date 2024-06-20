@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SistemadeClubMultidisciplinarioDeportivo</title>
+    <title>@ViewData["Title"] - ClubMultidisciplinarioDeportivo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SistemadeClubDeportivo.styles.css" asp-append-version="true" />
@@ -20,12 +20,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>                       
-                        <li class="nav-item">       
-                            <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>             
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Personals" asp-action="Index">Personal</a>
+                        </li>
+                        <li class="nav-item">       
+                            <a class="nav-link text-black" asp-area="" asp-controller="Pagos" asp-action="Index">Pago</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes del club</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Login" asp-action="Logout">Cerrar sesion</a>
                         </li>
