@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SistemadeClubDeportivo.Models.Pago>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #1e90ff; /* Azul oscuro */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+            a.button:hover {
+                background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+            }
+    </style>
+</head>
+<body>
+    <h1>Registro de mensualidad</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Número de Recibo
+            </th>
+            <th>
+                Día
+            </th>
+            <th>
+                Mes
+            </th>
+            <th>
+                Año
+            </th>
+            <th>
+                Total Bs.
+            </th>
+            <th>
+                Usuario
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroRecibo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario!.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente!.Nombre)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID">Generar recibo</a> 
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    <p>
+        <a class="button" asp-action="Create">Registrar Mensualidad</a>
+    </p>
+</body>
+</html>

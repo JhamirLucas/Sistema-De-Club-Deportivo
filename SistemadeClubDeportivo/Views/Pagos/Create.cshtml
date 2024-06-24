@@ -1,0 +1,142 @@
+﻿@model SistemadeClubDeportivo.Models.Pago
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .select2 {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #1e90ff; /* Azul oscuro */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+        }
+
+    .text-danger {
+        color: #dc3545; /* Rojo oscuro para mensajes de error */
+        font-size: 14px;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #1e90ff; /* Azul oscuro */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+        a:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+        }
+</style>
+</head>
+<body>
+<h1>Registrar Menusalidad del cliente</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClienteID" class="control-label"></label>
+                <select asp-for="ClienteID" class="form-control" asp-items="ViewBag.ClienteID"></select>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <label asp-for="Dia" class="control-label"></label>
+                <select asp-for="Dia" class="form-control select2" required>
+                    <option value="">Seleccione..</option>
+                    <option value="1">Lunes</option>
+                    <option value="2">Martes</option>
+                    <option value="3">Miércoles</option>
+                    <option value="4">Jueves</option>
+                    <option value="5">Viernes</option>
+                    <option value="6">Sábado</option>
+                </select>
+                <span asp-validation-for="Dia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Mes" class="control-label"></label>
+                <select asp-for="Mes" class="form-control select2" required>
+                    <option value="">Seleccione..</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <span asp-validation-for="Mes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Anio" class="control-label"></label>
+                <input type="number" value="@DateTime.Now.Year.ToString()" asp-for="Anio" class="form-control" />
+                <span asp-validation-for="Anio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" type="number" step="0.01" value="700" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UsuarioID" class="control-label">Usuario</label>
+                <select asp-for="UsuarioID" class="form-control" asp-items="ViewBag.UsuarioID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrar Pago" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Regresar atras</a>
+</div>
+</body>
+</html>
